@@ -46,8 +46,12 @@ $toots=$database->query("SELECT `id`, `user_id`, `text`, `image_file_name`, `cre
                       <img width="30" src="img/home.png" alt="">
                       <div>
                         <div class="name-id">
-                          <div>投稿者名</div>
-                          <div><?php echo $toot['user_id']; ?></div>
+                          <div><?php $tootUserInfo = $database->query
+                          ("SELECT `display_name` ,`login_name` FROM `user` WHERE `id`=" .$toot['user_id'])->fetch(PDO::FETCH_ASSOC);
+                          echo $tootUserInfo['display_name'];
+                           ?>
+                          </div>
+                          <div><?php echo "@" .$tootUserInfo['login_name']; ?></div>
                         </div>
                         <p><?php echo $toot['text']; ?></p>
                       </div>
