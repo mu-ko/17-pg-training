@@ -74,5 +74,19 @@ $toots=$database->query("SELECT `id`, `user_id`, `text`, `image_file_name`, `cre
                 </div>
             </div>
         </div>
+        <div class="lightbox">
+        <img src="" alt="">
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-lightbox/0.7.0/bootstrap-lightbox.min.js"></script>
+    <script>
+$(".tooted-user-image").click(function(){
+     $(".lightbox").show();
+     $(".lightbox img").attr("src", $(this).attr("src"));
+ });
+ $(".lightbox").click(function(){
+     $(this).hide();
+ })
+</script>
     </body>
 </html>
