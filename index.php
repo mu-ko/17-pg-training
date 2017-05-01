@@ -7,9 +7,9 @@ redirectToLoginPageIfNotLoggedIn();
 
 $user_login_name = $_SESSION['user_login_name'];
 
+
 $database = getDatabase();
 $toots=$database->query("SELECT `id`, `user_id`, `text`, `image_file_name`, `created_at` FROM `toot`")->fetchAll(PDO::FETCH_ASSOC);
-var_dump($toots);
 ?>
 
 <!-- 下にindex.htmlをコピペして、index.htmlを消そう！ -->
@@ -38,86 +38,21 @@ var_dump($toots);
             <div class="container toot-container">
                 <div class="label icon-home"><img class="label-icon" src="/img/home.png" width="15" alt="Home - ">ホーム</div>
                 <ul>
-                  <li>
-                    <img width="30" src="img/home.png" alt="">
-                    <div>
-                      <div class="name-id">
-                        <div>投稿者名</div>
-                        <div>ID</div>
+                  <?php
+                  foreach ($toots as $toot) {
+                    ?>
+
+                    <li>
+                      <img width="30" src="img/home.png" alt="">
+                      <div>
+                        <div class="name-id">
+                          <div>投稿者名</div>
+                          <div><?php echo $toot['user_id']; ?></div>
+                        </div>
+                        <p><?php echo $toot['text']; ?></p>
                       </div>
-                      <p>本文 testtt</p>
-                    </div>
-                  </li>
-                  <li>
-                    <img width="30" src="img/home.png" alt="">
-                    <div>
-                      <div class="name-id">
-                        <div>投稿者名</div>
-                        <div>ID</div>
-                      </div>
-                      <p>本文 testtt</p>
-                    </div>
-                  </li>
-                  <li>
-                    <img width="30" src="img/home.png" alt="">
-                    <div>
-                      <div class="name-id">
-                        <div>投稿者名</div>
-                        <div>ID</div>
-                      </div>
-                      <p>本文 testtt</p>
-                    </div>
-                  </li>
-                  <li>
-                    <img width="30" src="img/home.png" alt="">
-                    <div>
-                      <div class="name-id">
-                        <div>投稿者名</div>
-                        <div>ID</div>
-                      </div>
-                      <p>本文 testtt</p>
-                    </div>
-                  </li>
-                  <li>
-                    <img width="30" src="img/home.png" alt="">
-                    <div>
-                      <div class="name-id">
-                        <div>投稿者名</div>
-                        <div>ID</div>
-                      </div>
-                      <p>本文 testtt</p>
-                    </div>
-                  </li>
-                  <li>
-                    <img width="30" src="img/home.png" alt="">
-                    <div>
-                      <div class="name-id">
-                        <div>投稿者名</div>
-                        <div>ID</div>
-                      </div>
-                      <p>本文 testtt</p>
-                    </div>
-                  </li>
-                  <li>
-                    <img width="30" src="img/home.png" alt="">
-                    <div>
-                      <div class="name-id">
-                        <div>投稿者名</div>
-                        <div>ID</div>
-                      </div>
-                      <p>本文 testtt</p>
-                    </div>
-                  </li>
-                  <li>
-                    <img width="30" src="img/home.png" alt="">
-                    <div>
-                      <div class="name-id">
-                        <div>投稿者名</div>
-                        <div>ID</div>
-                      </div>
-                      <p>本文 testtt</p>
-                    </div>
-                  </li>
+                    </li>
+                    <?php } ?>
                 </ul>
             </div>
 
