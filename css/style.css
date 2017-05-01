@@ -128,7 +128,7 @@ textarea {
   color: #d9e1e8;
 }
 .toot-container{
-  background-color: #282c37;
+  background-color: #444B5D;
   overflow: scroll;
 }
 .toot-container ul{
@@ -137,7 +137,7 @@ textarea {
   margin-left: 0;
 }
 .toot-container ul li{
-  border-bottom-color: #FF0000;
+  border-bottom-color: #444B5D;
   border-bottom-style: solid;
   border-bottom-width: 1px;
   padding: 20px;
