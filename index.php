@@ -51,7 +51,7 @@ $toots=$database->query("SELECT `id`, `user_id`, `text`, `image_file_name`, `cre
                           echo $tootUserInfo['display_name'];
                            ?>
                           </div>
-                          <div><?php echo "@" .$tootUserInfo['login_name']; ?></div>
+                          <div class="login-name"><?php echo "@" .$tootUserInfo['login_name']; ?></div>
                         </div>
                         <p><?php echo $toot['text']; ?></p>
                       </div>
