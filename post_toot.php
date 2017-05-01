@@ -8,7 +8,7 @@ redirectToLoginPageIfNotLoggedIn();
 
 $toot_text = $_POST['text'];
 
-$newfilename = date("YmdHis")."-".$_SESSION['user_id']."-" .$_FILES['image']['name'];
+$newfilename = date("YmdHis")."-".$_SESSION['user_id']."-" .$_SESSION['login-name'];
 
 $uploaddir = getcwd().'/uploaded_image/';
 $uploadfile = $uploaddir . $newfilename;
