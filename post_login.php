@@ -4,14 +4,19 @@ require_once 'functions.php';
 
 session_start();
 
-$login_name = $_POST['login_name'];
+$login_name = htmlspecialchars($_POST['login_name']);
 
 $database = getDatabase();
-$user = $database->query("
+
+$sql_check ="
     SELECT *
     FROM `user`
-    WHERE `login_name` = '{$login_name}'
-")->fetch(PDO::FETCH_ASSOC);
+    WHERE `login_name` = ?
+";
+$sth = $database->prepare($sql_check);
+$sth->setFetchMode(PDO::FETCH_ASSOC);
+$sth->execute([$login_name]);
+$user =$sth->fetch();
 
 if ($user === false) {
     // ログイン失敗

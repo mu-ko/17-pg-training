@@ -19,19 +19,22 @@ $user = $database->query("
     SELECT *
     FROM `user`
     WHERE `login_name` = '{$login_name}'
-")->fetch(PDO::FETCH_ASSOC);
+");
 
 if ($user === false) {
     // 同じlogin_nameを持つユーザーがいなかったら新規登録
-    $database->query("
+
+    $sql = "
         INSERT INTO `user` (
             `login_name`,
             `display_name`
         ) VALUES (
-            '{$login_name}',
-            '{$display_name}'
+            ?,
+            ?
         )
-    ");
+    ";
+    $sth = $database->prepare($sql);
+    $res = $sth->execute([$login_name,$display_name]);
 }
 
 header('Location: /login.php');
