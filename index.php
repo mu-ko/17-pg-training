@@ -43,7 +43,7 @@ $toots=$database->query("SELECT `id`, `user_id`, `text`, `image_file_name`, `cre
                     ?>
 
                     <li>
-                      <img width="30" src="img/home.png" alt="">
+                      <img width="30" src="img/home.png" alt="" class = "tooted-user-icon">
                       <div>
                         <div class="name-id">
                           <div><?php $tootUserInfo = $database->query
@@ -54,10 +54,11 @@ $toots=$database->query("SELECT `id`, `user_id`, `text`, `image_file_name`, `cre
                           <div class="login-name"><?php echo "@" .$tootUserInfo['login_name']; ?></div>
                         </div>
                         <p><?php echo $toot['text']; ?></p>
+                        <?php if($toot['image_file_name']!=""){?>
+                        <div><img class = "tooted-user-image" src="uploaded_image/<?php echo $toot['image_file_name']?>" alt=""></div>
+                        <?php } ?>
                       </div>
-                      <?php if($toot['image_file_name']!=""){?>
-                      <div><img src="uploaded_image/<?php echo $toot['image_file_name']?>" alt=""></div>
-                      <?php } ?>
+
                     </li>
                     <?php } ?>
                 </ul>
