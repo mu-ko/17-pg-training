@@ -55,6 +55,9 @@ $toots=$database->query("SELECT `id`, `user_id`, `text`, `image_file_name`, `cre
                         </div>
                         <p><?php echo $toot['text']; ?></p>
                       </div>
+                      <?php if($toot['image_file_name']!=""){?>
+                      <div><img src="uploaded_image/<?php echo $toot['image_file_name']?>" alt=""></div>
+                      <?php } ?>
                     </li>
                     <?php } ?>
                 </ul>
