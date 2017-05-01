@@ -128,7 +128,7 @@ textarea {
   color: #d9e1e8;
 }
 .toot-container{
-  background-color: #444B5D;
+  background-color: #282c37;
   overflow: scroll;
 }
 .toot-container ul{
@@ -146,4 +146,7 @@ textarea {
 }
 .toot-container .name-id{
   display: flex;
+}
+.toot-container .name-id .login-name{
+  color:#444B5D;
 }
