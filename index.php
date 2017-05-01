@@ -9,7 +9,7 @@ $user_login_name = $_SESSION['user_login_name'];
 
 
 $database = getDatabase();
-$toots=$database->query("SELECT `id`, `user_id`, `text`, `image_file_name`, `created_at` FROM `toot`")->fetchAll(PDO::FETCH_ASSOC);
+$toots=$database->query("SELECT `id`, `user_id`, `text`, `image_file_name`, `created_at` FROM `toot` ORDER BY `id` DESC")->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!-- 下にindex.htmlをコピペして、index.htmlを消そう！ -->
